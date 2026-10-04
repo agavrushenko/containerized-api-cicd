@@ -9,12 +9,12 @@ import (
 func main() {
     app := fiber.New()
 
-    app.Get("/api", func(c fiber.Ctx) error {
+    app.Get("/", func(c fiber.Ctx) error {
         return c.JSON(fiber.Map{
 	    "message": "My name is Alexey Gavrushenko", 
-	    "timestamp": time.Now().Unix(),
+	    "timestamp": time.Now().UnixMilli(),
         })
     })
 
-    log.Fatal(app.Listen(":3000"))
+    log.Fatal(app.Listen(":80"))
 }
