@@ -45,7 +45,9 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push Tested Image to GHCR
-        run: docker push ghcr.io/${{ github.repository }}:${{ github.run_number }}
+        run: |
+          docker push ghcr.io/${{ github.repository }}:${{ github.run_number }}
+          docker push ghcr.io/${{ github.repository }}:latest
 
   deploy:
     needs: build
