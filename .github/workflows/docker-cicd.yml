@@ -47,6 +47,9 @@ jobs:
       - name: Push Tested Image to GHCR
         run: docker push ghcr.io/${{ github.repository }}:${{ github.run_number }}
 
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
       - name: Authenticate with CGP
         uses: google-github-actions/auth@v3
         with:
