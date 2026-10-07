@@ -2,7 +2,7 @@ name: Build, Test, and Push Docker Image
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "test-workflows" ]
   workflow_dispatch:
 
 permissions:
@@ -31,7 +31,7 @@ jobs:
         run: docker run -d -p 80:8080 --name test-app ghcr.io/${{ github.repository }}:${{ github.run_number }}
 
       - name: Run Tests
-        uses: liatrio/github-actions/apprentice-action@0b41561cca6822cc8d880fe0e49e7807a41fdf91
+        uses: liatrio/github-actions/apprentice-action@fix/apprentice-action-minified-json-test
 
       - name: Post-test cleanup
         if: always() 
