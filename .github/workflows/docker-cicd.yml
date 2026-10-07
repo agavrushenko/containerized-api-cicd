@@ -48,6 +48,7 @@ jobs:
         run: docker push ghcr.io/${{ github.repository }}:${{ github.run_number }}
 
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Authenticate with CGP
