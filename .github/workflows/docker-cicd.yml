@@ -55,6 +55,7 @@ jobs:
       - name: Deploy new container to Cloud Run
         uses: google-github-actions/deploy-cloudrun@v3
         with:
+          project_id: liatrio-apprenticeship-510421
           service: containerized-api-cicd 
-          reion: us-west1
+          region: us-west1
           image: ghcr.io/${{ github.repository }}:${{ github.run_number }}
