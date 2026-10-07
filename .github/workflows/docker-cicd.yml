@@ -25,7 +25,9 @@ jobs:
         with:
           context: .
           load: true
-          tags: ghcr.io/${{ github.repository }}:${{ github.run_number }}
+          tags: |
+            ghcr.io/${{ github.repository }}:${{ github.run_number }}
+            ghcr.io/${{ github.repository }}:latest
 
       - name: Start Container for Testing
         run: docker run -d -p 80:8080 --name test-app ghcr.io/${{ github.repository }}:${{ github.run_number }}
